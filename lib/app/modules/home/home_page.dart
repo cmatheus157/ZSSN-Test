@@ -141,6 +141,8 @@ class _HomePageState extends ModularState<HomePage, HomeController> {
                                       name: nameController.text,
                                       gender: homecontroller.gender);
                                   homecontroller.updatePerson(pessoa);
+                                  Modular.to
+                                      .pushReplacementNamed('/inventory/');
                                 }),
                           );
                   }),

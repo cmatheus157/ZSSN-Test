@@ -32,10 +32,8 @@ class _FriendsPageState extends ModularState<FriendsPage, FriendsController> {
   //use 'controller' variable to access controller
   AddfriendController addController = Modular.get<AddfriendController>();
   FriendsController friendController = Modular.get<FriendsController>();
-
   @override
   Widget build(BuildContext context) {
-    Hive.openBox('friendBox');
     return Scaffold(
       floatingActionButton: FloatingActionButton(
         child: Icon(Icons.person_add),
@@ -67,18 +65,15 @@ class _FriendsPageState extends ModularState<FriendsPage, FriendsController> {
         ],
       ),
       body: Observer(builder: (_) {
-        var caixa;
-
+        var caixa = Hive.box('friendBox');
         return ListView.builder(
-          itemCount: Hive.box('friendBox').length,
+          itemCount: caixa.length,
           itemBuilder: (BuildContext context, int index) {
             return Card(
               child: ListTile(
                 trailing: Icon(Icons.delete),
-                onTap: () {
-                  caixa.delete(index);
-                },
-                title: Text(Hive.box('friendBox').get(index)),
+                onTap: () {},
+                title: Text(caixa.get(index)),
               ),
             );
           },

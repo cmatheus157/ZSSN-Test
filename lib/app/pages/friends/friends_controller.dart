@@ -10,15 +10,9 @@ abstract class _FriendsControllerBase with Store {
   _FriendsControllerBase() {
     getAll();
   }
-  var dir;
-  getAll() async {
-    dir = await getApplicationDocumentsDirectory();
-    Hive.init(dir.path);
-    return await Hive.openBox('friendBox');
-  }
 
-  openBox() async {
-    dir = await getApplicationDocumentsDirectory();
+  getAll() async {
+    final dir = await getApplicationDocumentsDirectory();
     Hive.init(dir.path);
     return await Hive.openBox('friendBox');
   }
