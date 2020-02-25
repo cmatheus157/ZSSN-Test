@@ -5,9 +5,9 @@ Projeto em Flutter com base nos requisitos encontrados aqui https://gist.github.
 
 O projeto foi feito utilizando a versao 1.12.13 hotfix.8 do Flutter
  
-Optei por fazer utilizando o  Flutter Modular caso não conheça https://medium.com/flutterando/quais-os-problemas-que-o-flutter-modular-veio-resolver-deaed96b71b3
+ Optei por fazer utilizando o  Flutter Modular caso não conheça https://medium.com/flutterando/quais-os-problemas-que-o-flutter-modular-veio-resolver-deaed96b71b3
 
-É uma ferramenta interessante que pode ser usada junto com vários padrões, escolhi ela por causa que ela possibilita algumas facilidades como Rotas nomeadas, Injeção de Dependencias e separação por modulos esta primeira sendo muito útil na versão web do flutter. 
+ É uma ferramenta interessante que pode ser usada junto com vários padrões, escolhi ela por causa que ela possibilita algumas facilidades como Rotas nomeadas, Injeção de Dependencias e separação por modulos esta primeira sendo muito útil na versão web do flutter. 
 
 utilizei tambem  o MOBX para a gerencia de estado.
 
@@ -23,7 +23,7 @@ Sign in as survivor If it is first time the application is running and the user 
 
 -List of contacts The user can meet people and connect with them. This relation will provide you the ability to make trades and, if the person got infected, you can flag him/her. To create a new connection you have to use the other user's identifier.
 
-Por alguns detalhes que me travaram não pude completar as seguintes tarefas mas senti que com um pouco mais de tempo eu poderia realiza-las com sucesso.
+ Por alguns detalhes que me travaram não pude completar as seguintes tarefas mas senti que com um pouco mais de tempo eu poderia realiza-las com sucesso.
 
 -Flag survivor as infected In a chaotic situation like that, it's inevitable that a survivor may get contaminated by the virus. When this happens, we need to flag the survivor as infected. An infected survivor cannot trade with others, cannot access/manipulate their inventory, nor be listed in the reports (infected people are kinda dead anyway, see the item on reports below). A survivor is marked as infected when at least three other survivors report their contamination. When a survivor is infected, their inventory items become inaccessible (they cannot trade with others).
 
@@ -31,7 +31,7 @@ Por alguns detalhes que me travaram não pude completar as seguintes tarefas mas
 -Trade items Survivors can trade items among themselves, but for it to happen they should be near from one another (last location)
 
 
-Para atualizar a localização é necessario  atualizar o nome, a idade e o gênero sendo assim optei por deixar de uma forma que e nescessario digitar essas informaçoes novamente para ocorrer a atualizaçao parafacilitar o teste 
+ Para atualizar a localização é necessario  atualizar o nome, a idade e o gênero sendo assim optei por deixar de uma forma que e nescessario digitar essas informaçoes novamente para ocorrer a atualizaçao parafacilitar o teste 
 
 Qualquer Dúvida no código pode entrar em contato comigo no email: carlos.matheus.10@hotmail.com
  
