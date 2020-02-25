@@ -10,6 +10,7 @@ PersonModel personFromJson(String str) =>
 String personToJson(PersonModel data) => json.encode(data.toJson());
 
 class PersonModel {
+  String id;
   String name;
   int age;
   String gender;
@@ -19,6 +20,7 @@ class PersonModel {
   bool infected;
 
   PersonModel({
+    this.id,
     this.name,
     this.age,
     this.gender,
@@ -29,6 +31,7 @@ class PersonModel {
   });
 
   factory PersonModel.fromJson(Map<String, dynamic> json) => PersonModel(
+        id: json["id"],
         name: json["name"],
         age: json["age"],
         gender: json["gender"],
@@ -39,6 +42,7 @@ class PersonModel {
       );
 
   Map<String, dynamic> toJson() => {
+        "id": id,
         "name": name,
         "age": age,
         "gender": gender,
