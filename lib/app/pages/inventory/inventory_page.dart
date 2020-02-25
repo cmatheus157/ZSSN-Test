@@ -55,7 +55,7 @@ class _InventoryPageState
         items: [
           BottomNavigationBarItem(
             icon: Icon(Icons.person),
-            title: Text("Profile"),
+            title: Text("Perfil"),
           ),
           BottomNavigationBarItem(
               icon: Icon(Icons.fastfood), title: Text("Inventário")),

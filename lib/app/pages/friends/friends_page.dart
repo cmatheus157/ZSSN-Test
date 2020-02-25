@@ -56,7 +56,7 @@ class _FriendsPageState extends ModularState<FriendsPage, FriendsController> {
         items: [
           BottomNavigationBarItem(
             icon: Icon(Icons.person),
-            title: Text("Profile"),
+            title: Text("Perfil"),
           ),
           BottomNavigationBarItem(
               icon: Icon(Icons.fastfood), title: Text("Inventário")),
