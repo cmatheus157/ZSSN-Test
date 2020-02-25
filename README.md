@@ -32,6 +32,8 @@ Por alguns detalhes que me travaram não pude completar as seguintes tarefas mas
 
 
 Para atualizar a localização é necessario  atualizar o nome, a idade e o gênero sendo assim optei por deixar de uma forma que e nescessario digitar essas informaçoes novamente para ocorrer a atualizaçao parafacilitar o teste 
+
+Qualquer Dúvida no código pode entrar em contato comigo no email: carlos.matheus.10@hotmail.com
  
 OBS:( Vale lembrar que a tarefa foi dado no periodo de Carnaval mereço alguns pontos pois cancelei minha viagem para o Interior)
 
