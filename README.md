@@ -34,8 +34,11 @@ Por alguns detalhes que me travaram não pude completar as seguintes tarefas mas
 Para atualizar a localização é necessario  atualizar o nome, a idade e o gênero sendo assim optei por deixar de uma forma que e nescessario digitar essas informaçoes novamente para ocorrer a atualizaçao parafacilitar o teste 
  
 OBS:( Vale lembrar que a tarefa foi dado no periodo de Carnaval mereço alguns pontos pois cancelei minha viagem para o Interior)
-Aguardo o Feedback 
+
+Aguardo o Feedback.
+ 
 Desde já agradeço a  Oportunidade.
+
 Gostaria Muito de Colaborar com a Empresa Como Dev ou Estagiario para poder crescer dentro da propria empresa.
 
 
