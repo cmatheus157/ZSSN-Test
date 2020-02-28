@@ -108,7 +108,7 @@ class _HomePageState extends ModularState<HomePage, HomeController> {
                   Divider(),
                   Observer(builder: (_) {
                     print(' id do obs ${homecontroller.id}');
-                    return homecontroller.id != null
+                    return homecontroller.id == null
                         ? Center(
                             child: FlatButton(
                                 color: Colors.green.shade900,
@@ -147,7 +147,7 @@ class _HomePageState extends ModularState<HomePage, HomeController> {
                                 }),
                           );
                   }),
-                  if (homecontroller.id == null)
+                  if (homecontroller.id != null)
                     Center(
                       child: QrImage(
                         data: homecontroller.id,
