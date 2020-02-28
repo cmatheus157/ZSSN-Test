@@ -7,13 +7,15 @@ O projeto foi feito utilizando a versao 1.12.13 hotfix.8 do Flutter
  
  Optei por fazer utilizando o  Flutter Modular caso não conheça https://medium.com/flutterando/quais-os-problemas-que-o-flutter-modular-veio-resolver-deaed96b71b3
 
- É uma ferramenta interessante que pode ser usada junto com vários padrões, escolhi ela por causa que ela possibilita algumas facilidades como Rotas nomeadas, Injeção de Dependencias e separação por modulos esta primeira sendo muito útil na versão web do flutter. 
+ É uma ferramenta interessante que pode ser usada junto com vários padrões, escolhi ela porque ela possibilita algumas facilidades como Rotas nomeadas, Injeção de Dependencias e separação por modulos esta primeira sendo muito útil na versão web do flutter. 
 
 utilizei tambem  o MOBX para a gerencia de estado.
 
 O plugin geolocator para a utilização do gps.
 
-O banco de dados Hive para persistencia de dados. 
+O banco de dados Hive para persistência de dados. 
+QrScan e Qrflutter para utilização do QRCode 
+Dio para Requisições na API 
 
 
 
@@ -21,12 +23,5 @@ Aguardo o Feedback.
  
 Desde já agradeço a  Oportunidade.
 
-Gostaria Muito de Colaborar com a Empresa Como Dev ou Estagiario para poder crescer dentro da propria empresa.
+Gostaria Muito de Colaborar com a Empresa Como Dev Jr. ou Estagiário para poder crescer dentro da mesma.
 
-
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
