@@ -6,7 +6,7 @@ import 'package:zssn/shared/repositories/person_repository.dart';
 class HomeModule extends ChildModule {
   @override
   List<Bind> get binds => [
-        Bind((i) => HomeController(i.get<PersonRepository>())),
+        Bind((i) => HomeController()),
       ];
 
   @override

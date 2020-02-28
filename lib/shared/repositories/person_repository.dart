@@ -2,6 +2,7 @@ import 'package:dio/dio.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:zssn/app/modules/home/home_controller.dart';
+import 'package:zssn/app/pages/friends/friends_page.dart';
 import 'package:zssn/shared/models/person_model.dart';
 import 'package:zssn/shared/utils/constants.dart';
 
@@ -32,11 +33,22 @@ class PersonRepository {
       "age": person.age,
       "gender": person.gender,
       "lonlat": 'POINT (${userLocation.latitude} ${userLocation.longitude})',
-      "items": 'Fiji Water:10;Campbell Soup:5'
+      "items": 'Fiji Water:10;Campbell Soup:5;First Aid Pouch:2;AK47:5'
     });
     personRepository = PersonModel.fromJson(response.data);
     print(personRepository.id);
     print(personRepository.lonlat);
+  }
+
+  Future<PersonModel> postInfected(String idInfected) async {
+    var response =
+        await dio.post('people/$idInfected/report_infection.json', data: {
+      "infected": idInfected,
+      "id": homecontroller.id,
+    });
+    personRepository = PersonModel.fromJson(response.data);
+    print('id  infectante $personRepository.id');
+    print(' id infectado  $idInfected');
   }
 
   Future<PersonModel> updatePerson(PersonModel person) async {

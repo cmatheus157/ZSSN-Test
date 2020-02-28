@@ -162,6 +162,47 @@ mixin _$HomeController on _HomeControllerBase, Store {
     }, _$personAtom, name: '${_$personAtom.name}_set');
   }
 
+  final _$idAtom = Atom(name: '_HomeControllerBase.id');
+
+  @override
+  String get id {
+    _$idAtom.context.enforceReadPolicy(_$idAtom);
+    _$idAtom.reportObserved();
+    return super.id;
+  }
+
+  @override
+  set id(String value) {
+    _$idAtom.context.conditionallyRunInAction(() {
+      super.id = value;
+      _$idAtom.reportChanged();
+    }, _$idAtom, name: '${_$idAtom.name}_set');
+  }
+
+  final _$textAtom = Atom(name: '_HomeControllerBase.text');
+
+  @override
+  String get text {
+    _$textAtom.context.enforceReadPolicy(_$textAtom);
+    _$textAtom.reportObserved();
+    return super.text;
+  }
+
+  @override
+  set text(String value) {
+    _$textAtom.context.conditionallyRunInAction(() {
+      super.text = value;
+      _$textAtom.reportChanged();
+    }, _$textAtom, name: '${_$textAtom.name}_set');
+  }
+
+  final _$initAsyncAction = AsyncAction('init');
+
+  @override
+  Future init() {
+    return _$initAsyncAction.run(() => super.init());
+  }
+
   final _$getPersonAsyncAction = AsyncAction('getPerson');
 
   @override
@@ -201,6 +242,26 @@ mixin _$HomeController on _HomeControllerBase, Store {
       ActionController(name: '_HomeControllerBase');
 
   @override
+  void saveId() {
+    final _$actionInfo = _$_HomeControllerBaseActionController.startAction();
+    try {
+      return super.saveId();
+    } finally {
+      _$_HomeControllerBaseActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
+  void removeID(int index) {
+    final _$actionInfo = _$_HomeControllerBaseActionController.startAction();
+    try {
+      return super.removeID(index);
+    } finally {
+      _$_HomeControllerBaseActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
   dynamic setGender(String _gender) {
     final _$actionInfo = _$_HomeControllerBaseActionController.startAction();
     try {
@@ -223,7 +284,7 @@ mixin _$HomeController on _HomeControllerBase, Store {
   @override
   String toString() {
     final string =
-        'userLocation: ${userLocation.toString()},personGet: ${personGet.toString()},latitude: ${latitude.toString()},longitude: ${longitude.toString()},idPerson: ${idPerson.toString()},gender: ${gender.toString()},stringValue: ${stringValue.toString()},pessoas: ${pessoas.toString()},person: ${person.toString()}';
+        'userLocation: ${userLocation.toString()},personGet: ${personGet.toString()},latitude: ${latitude.toString()},longitude: ${longitude.toString()},idPerson: ${idPerson.toString()},gender: ${gender.toString()},stringValue: ${stringValue.toString()},pessoas: ${pessoas.toString()},person: ${person.toString()},id: ${id.toString()},text: ${text.toString()}';
     return '{$string}';
   }
 }

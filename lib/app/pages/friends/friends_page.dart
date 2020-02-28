@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_icons/flutter_icons.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:hive/hive.dart';
+import 'package:qr_flutter/qr_flutter.dart';
 import 'package:zssn/app/modules/home/home_controller.dart';
 import 'package:zssn/app/pages/inventory/inventory_controller.dart';
 import 'package:zssn/shared/repositories/item_repository.dart';
@@ -65,15 +67,32 @@ class _FriendsPageState extends ModularState<FriendsPage, FriendsController> {
         ],
       ),
       body: Observer(builder: (_) {
-        var caixa = Hive.box('friendBox');
         return ListView.builder(
-          itemCount: caixa.length,
+          itemCount: friendController.list.length,
           itemBuilder: (BuildContext context, int index) {
             return Card(
               child: ListTile(
-                trailing: Icon(Icons.delete),
-                onTap: () {},
-                title: Text(caixa.get(index)),
+                trailing: Row(
+                  mainAxisSize: MainAxisSize.min,
+                  children: <Widget>[
+                    IconButton(
+                      icon: Icon(MaterialCommunityIcons.biohazard),
+                      color: Colors.red,
+                      onPressed: () {
+                        personRepository
+                            .postInfected(friendController.list[index]);
+                      },
+                    ),
+                    IconButton(
+                      icon: Icon(Icons.delete),
+                      color: Colors.red,
+                      onPressed: () {
+                        friendController.remove(index);
+                      },
+                    ),
+                  ],
+                ),
+                title: Text(friendController.list[index]),
               ),
             );
           },

@@ -27,12 +27,13 @@ abstract class _InventoryControllerBase with Store {
 
   _InventoryControllerBase(this.repository) {
     //itens = repository.getPersonitems(appController.id).asObservable();
+
     getAllItems();
   }
 
   @action
   getAllItems() async {
-    id = homeController.idPerson;
+    id = homeController.id;
     print('o id quando chama ${id}');
     itens = repository.getPersonitems(id).asObservable();
   }

@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:zssn/app/pages/friends/friends_controller.dart';
 import 'addfriend_controller.dart';
+import 'package:qrscan/qrscan.dart' as scanner;
 
 class AddfriendPage extends StatefulWidget {
   final String title;
@@ -17,6 +20,7 @@ class _AddfriendPageState
   //use 'controller' variable to access controller
   TextEditingController idController = TextEditingController();
   AddfriendController addController = Modular.get<AddfriendController>();
+  FriendsController friendController = Modular.get<FriendsController>();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -32,32 +36,55 @@ class _AddfriendPageState
           Divider(),
           Padding(
             padding: const EdgeInsets.all(8.0),
-            child: TextField(
-              controller: idController,
-              decoration: InputDecoration(
-                labelText: "Informe o id do Sobrevivente ",
-                labelStyle: TextStyle(color: Colors.green.shade900),
-                border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(25.0)),
-              ),
-              style: TextStyle(color: Colors.black, fontSize: 25.0),
+            child: Observer(builder: (_) {
+              idController.text = addController.idFriend;
+              return TextField(
+                controller: idController,
+                decoration: InputDecoration(
+                  labelText: "Digite o Id do Sobrevivente",
+                  labelStyle: TextStyle(color: Colors.green.shade900),
+                  border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(25.0)),
+                ),
+                style: TextStyle(color: Colors.black, fontSize: 25.0),
+              );
+            }),
+          ),
+          Observer(builder: (_) {
+            return Center(
+              child: FlatButton(
+                  color: Colors.green.shade900,
+                  textColor: Colors.white,
+                  padding: EdgeInsets.all(15.0),
+                  splashColor: Colors.green,
+                  child: Text("Ler QRCode",
+                      style: GoogleFonts.creepster(fontSize: 20)),
+                  onPressed: () {
+                    addController.scanQRCode();
+                    idController.text = addController.idFriend;
+                  }),
+            );
+          }),
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Center(
+              child: FlatButton(
+                  color: Colors.green.shade900,
+                  textColor: Colors.white,
+                  padding: EdgeInsets.all(15.0),
+                  splashColor: Colors.green,
+                  child: Text("Adicionar Sobrevivente",
+                      style: GoogleFonts.creepster(fontSize: 20)),
+                  onPressed: () {
+                    friendController.text = idController.text;
+                    friendController.save();
+                    Modular.to.pushReplacementNamed('/friends/');
+                  }),
             ),
           ),
-          Center(
-            child: FlatButton(
-                color: Colors.green.shade900,
-                textColor: Colors.white,
-                padding: EdgeInsets.all(15.0),
-                splashColor: Colors.green,
-                child: Text("Adicionar Sobrevivente",
-                    style: GoogleFonts.creepster(fontSize: 20)),
-                onPressed: () {
-                  idController.text;
-                  addController.addIdPersonToHive(idController.text);
-
-                  Modular.to.pushReplacementNamed('/friends/');
-                }),
-          )
+          Observer(builder: (_) {
+            return Text(addController.idFriend);
+          })
         ],
       ),
     );

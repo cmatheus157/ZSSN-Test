@@ -3,6 +3,7 @@ import 'package:geolocator/geolocator.dart';
 import 'package:mobx/mobx.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:zssn/shared/models/person_model.dart';
+import 'package:zssn/shared/repositories/hive_repository.dart';
 import 'package:zssn/shared/repositories/person_repository.dart';
 import 'package:zssn/shared/utils/constants.dart';
 import 'package:hive/hive.dart';
@@ -13,7 +14,9 @@ part 'home_controller.g.dart';
 class HomeController = _HomeControllerBase with _$HomeController;
 
 abstract class _HomeControllerBase with Store {
-  final PersonRepository repository;
+  final PersonRepository repository = Modular.get();
+  final LocalStorage storageRepository = Modular.get();
+
   Geolocator geolocator = Geolocator();
   @observable
   Position userLocation;
@@ -35,8 +38,36 @@ abstract class _HomeControllerBase with Store {
   @observable
   PersonModel person;
 
-  _HomeControllerBase(this.repository) {
+  _HomeControllerBase() {
     getIdPersonToHive();
+    init();
+  }
+  @observable
+  String id;
+
+  @observable
+  String text = '';
+
+  @action
+  init() async {
+    String idLocal = await storageRepository.getId('id');
+    if (idLocal == null) {
+      id = null;
+    } else {
+      id = idLocal;
+    }
+  }
+
+  @action
+  void saveId() {
+    id = text;
+    storageRepository.saveId('id', id);
+  }
+
+  @action
+  void removeID(int index) {
+    id = null;
+    storageRepository.deleteId('id');
   }
 
   @action
@@ -59,9 +90,9 @@ abstract class _HomeControllerBase with Store {
   @action
   postPerson(PersonModel _person) async {
     await repository.postPerson(_person);
-    print(repository.personRepository.id);
-    print(repository.personRepository.name);
-    addIdPersonToHive(repository.personRepository.id);
+    text = repository.personRepository.id;
+    saveId();
+    // addIdPersonToHive(repository.personRepository.id);
   }
 
   @action
@@ -85,9 +116,9 @@ abstract class _HomeControllerBase with Store {
     Hive.init(dir.path);
     var box = await Hive.openBox('testBox');
     String personId = await box.get('IdPerson');
-    print('id do banco : ${box.get('IdPerson')}');
-    idPerson = await box.get('IdPerson');
-    return personId;
+    print('id do banco : ${personId}');
+    idPerson = personId;
+    return idPerson;
   }
 
   @action

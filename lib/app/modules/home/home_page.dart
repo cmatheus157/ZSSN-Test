@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
+import 'package:qr_flutter/qr_flutter.dart';
 import 'package:zssn/app/app_controller.dart';
 import 'package:zssn/app/pages/friends/friends_page.dart';
 import 'package:zssn/shared/models/person_model.dart';
@@ -106,8 +107,8 @@ class _HomePageState extends ModularState<HomePage, HomeController> {
                   }),
                   Divider(),
                   Observer(builder: (_) {
-                    print(' id do obs ${appcontroller.id}');
-                    return homecontroller.getIdPersonToHive() == null
+                    print(' id do obs ${homecontroller.id}');
+                    return homecontroller.id != null
                         ? Center(
                             child: FlatButton(
                                 color: Colors.green.shade900,
@@ -146,6 +147,14 @@ class _HomePageState extends ModularState<HomePage, HomeController> {
                                 }),
                           );
                   }),
+                  if (homecontroller.id == null)
+                    Center(
+                      child: QrImage(
+                        data: homecontroller.id,
+                        version: QrVersions.auto,
+                        size: 200.0,
+                      ),
+                    ),
                 ],
               ),
             ),

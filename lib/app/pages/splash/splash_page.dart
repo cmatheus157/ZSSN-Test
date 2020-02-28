@@ -3,6 +3,7 @@ import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:zssn/app/modules/home/home_controller.dart';
+import 'package:zssn/app/pages/friends/friends_page.dart';
 import 'package:zssn/shared/models/person_model.dart';
 import 'package:zssn/shared/repositories/person_repository.dart';
 import 'splash_controller.dart';
@@ -32,7 +33,7 @@ class _SplashPageState extends ModularState<SplashPage, SplashController> {
     });
 
     Future.delayed(Duration(seconds: 5)).then((v) {
-      homecontroller.getIdPersonToHive() == null
+      homecontroller.id == null
           ? Modular.to.pushReplacementNamed('/home/')
           : Modular.to.pushReplacementNamed('/inventory/');
     });
@@ -41,13 +42,13 @@ class _SplashPageState extends ModularState<SplashPage, SplashController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        centerTitle: true,
-        title: Text(
-          widget.title,
-          style: GoogleFonts.creepster(fontSize: 25),
-        ),
-      ),
+      // appBar: AppBar(
+      //   centerTitle: true,
+      //   title: Text(
+      //     widget.title,
+      //     style: GoogleFonts.creepster(fontSize: 25),
+      //   ),
+      // ),
       body: Container(
         color: Colors.green.shade900,
         child: Center(

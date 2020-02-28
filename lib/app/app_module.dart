@@ -13,6 +13,7 @@ import 'package:zssn/app/app_widget.dart';
 import 'package:zssn/app/modules/home/home_controller.dart';
 import 'package:zssn/app/modules/home/home_module.dart';
 import 'package:zssn/app/pages/splash/splash_page.dart';
+import 'package:zssn/shared/repositories/hive_repository.dart';
 import 'package:zssn/shared/repositories/item_repository.dart';
 import 'package:zssn/shared/repositories/person_repository.dart';
 import 'package:zssn/shared/utils/constants.dart';
@@ -21,11 +22,12 @@ class AppModule extends MainModule {
   @override
   List<Bind> get binds => [
         Bind((i) => AddfriendController()),
+        Bind((i) => LocalStorage()),
         Bind((i) => FriendsController()),
         Bind((i) => AppController(i.get<HomeController>())),
         Bind((i) => InventoryController(i.get<ItemRepository>())),
         Bind((i) => SplashController(i.get<HomeController>())),
-        Bind((i) => HomeController(i.get<PersonRepository>())),
+        Bind((i) => HomeController()),
         Bind((i) => PersonRepository(i.get<Dio>())),
         Bind((i) => ItemRepository(i.get<Dio>())),
         Bind((i) => Dio(BaseOptions(baseUrl: BASE_URL))),
