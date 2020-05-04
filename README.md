@@ -21,7 +21,6 @@ Dio para Requisições na API
 
 Aguardo o Feedback.
  
-Desde já agradeço a  Oportunidade.
 
-Gostaria Muito de Colaborar com a Empresa Como Dev Jr. ou Estagiário para poder crescer dentro da mesma.
+
 
